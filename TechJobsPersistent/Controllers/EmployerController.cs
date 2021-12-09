@@ -28,11 +28,10 @@ namespace TechJobsPersistent.Controllers
             return View(employers);
         }
 
-        [HttpPost]
         public IActionResult Add()
         {
-            AddEmployerViewModel newDisplayEmployer = new AddEmployerViewModel();
-            return View(newDisplayEmployer);
+            AddEmployerViewModel viewModel = new AddEmployerViewModel();
+            return View(viewModel);
         }
 
         [HttpPost]
@@ -67,7 +66,6 @@ namespace TechJobsPersistent.Controllers
             return View(viewModel);
         }
 
-        [HttpPost]
         public IActionResult About(int id)
         {
             List<Employer> employers = context.Employers
