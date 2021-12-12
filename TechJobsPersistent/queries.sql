@@ -1,17 +1,11 @@
 --Part 1
 /*SQL TASK: At this point, you will have tables for Jobs, Employers, Skills, and JobSkills. In queries.sql under “Part 1”, list the columns and their data types in the Jobs table.*/
 
-/* this is the query I ran to find out the columns and their data types 
+/* this is the query I ran to find out the columns and their data types*/
 
-SELECT 
-TABLE_CATALOG,
-TABLE_SCHEMA,
-TABLE_NAME, 
-COLUMN_NAME, 
-DATA_TYPE 
-FROM INFORMATION_SCHEMA.COLUMNS 
-where TABLE_NAME = "jobs"
-*/
+SELECT column_name, data_type 
+FROM information_schema.columns
+WHERE table_name = "jobs"
 
 --Column_Name / Data_Type
 
@@ -31,3 +25,9 @@ WHERE (location = "St. Louis City")
 
  /*SQL TASK: In queries.sql under “Part 3”, write a query to return a list of the names and descriptions of all skills that are attached to jobs in alphabetical order. If a skill does not have a job listed, it should not be included in the results of this query.*/
 
+SELECT DISTINCT Skills.Name, Skills.Description
+FROM JobSkills
+RIGHT JOIN Skills
+ON JobSkills.SkillId = Skills.Id
+WHERE JobSkills.SkillId IS NOT NUll
+ORDER BY Skills.Name ASC;
