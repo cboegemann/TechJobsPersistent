@@ -19,7 +19,7 @@ EmployerId / int
 
 SELECT name
 FROM techjobs.Employers
-WHERE (location = "St. Louis City")
+WHERE location = "St. Louis City"
 
 --Part 3
 
